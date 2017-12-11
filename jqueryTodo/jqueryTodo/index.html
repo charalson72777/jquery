@@ -1,0 +1,286 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Simple Jquery Exercise</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        a.navbar-brand {
+            font-weight: 100;
+            margin-top: 10px;
+            padding: 0px 9px;
+            line-height: 21px;
+            text-transform: uppercase;
+            font-size: 29px;
+            display: block;
+            float: left;
+            height: 60px;
+            line-height: 60px;
+            font-family: 'Open Sans', Tahoma, sans-serif;
+        }
+
+        .navbar-brand, .navbar-nav > li > a {
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+        }
+
+        a.navbar-brand span {
+            float: left;
+            height: 20px;
+            line-height: 20px;
+        }
+
+        a.navbar-brand small {
+            color: green;
+            font-size: 13px;
+            height: 20px;
+            line-height: 20px;
+            font-weight: 100;
+            text-transform: none;
+            font-family: "Pacifico", Monaco, Consolas, monospace;
+        }
+
+        .item-row {
+            background-color: #e6ffe6;
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+
+        fieldset {
+            min-height: 20px;
+            padding: 19px;
+            margin-bottom: 20px;
+            border: 1px solid #e3e3e3;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+        }
+
+        .title {
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="register.html" class="navbar-brand ">
+                    <span class="logo">
+                        <strong>Azure<br /></strong>
+                        <small>Lab Exercise</small>
+                    </span>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right visible-xs"></ul>
+                <div class="nav navbar-nav navbar-right hidden-xs">
+                    <div class="row">
+                        <div class="pull-right">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>
+                    Todo List
+                </h3>
+                <div class="row">
+                    <div class="col-xs-12 col-md-8">
+                        <form class="form-vertical" id="frmAddToDo">
+                            <fieldset>
+                                <!-- Author form -->
+                                <div>
+                                    <div class="control-group">
+                                        <label class="control-label">Title</label>
+                                        <div class="controls">
+                                            <!-- This is the INPUTBOX-->
+                                            <input type="text" class="form-control" placeholder="Write What Your Task" id="title" />
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Priority</label>
+                                        <div class="controls">
+                                            <select class="form-control" id="priorityLevel">
+                                                <!--This is the Dropdown Box-->
+                                                <option></option>
+                                                <option value="High">High</option>
+                                                <option value="Medium">Medium</option>
+                                                <option value="Low">Low</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group padtop row ">
+                                        <div class="controls text-center">
+                                            <p>&nbsp;</p>
+                                            <input type="button" id="btnSubmit" class="btn btn-primary" value="Add" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="col-md-4 col-xs-12 pull-right listings">
+                        <div id="item-list">
+                            <!-- SINGLE Item START -->
+                            <div class="row  item-row">
+                                <div class="col-sm-offset-1 col-sm-9">
+                                    <p class="title">Pay Mortgage</p>
+                                    <p class="priority">High</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="button" class="delete pull-right btn btn-sm btn-danger" value="x" />
+                                </div>
+                            </div>
+
+                            <!-- SINGLE Item START -->
+                            <div class="row  item-row">
+                                <div class="col-sm-offset-1 col-sm-9">
+                                    <p class="title">Clean Dishes</p>
+                                    <p class="priority">Low</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="button" class="delete pull-right btn btn-sm btn-danger" value="x" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    <p><strong>&copy; Azure 2017</strong></p>
+                    <p>All rights reserved</p>
+                </div>
+                <div class="col-sm-8 col-xs-12">
+                    <p class="footer-links">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--//////////////////////Insert Jquery//////////////////////////////////////////////-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!--////////////////////////Insert Bootstrap///////////////////////////////////////-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="azure.js"></script>
+    <script type="text/javascript">
+
+        azure.page.startUp = function () {
+            azure.page.activeItem = null
+            $("#btnSubmit").on("click", azure.page.handlers.btnSubmit);
+            $("#item-list").on("click", ".delete", azure.page.handlers.close);             
+            $("#item-list").on("click", ".item-row", azure.page.handlers.edit);
+        }
+
+        azure.page.handlers.btnSubmit = function () {
+            var data = azure.page.readForm();
+            azure.page.addTask(data);
+            azure.page.clearForm();
+            $("#btnSubmit").val("Add");
+        };
+
+        azure.page.readForm = function () {
+            var title = $("#title").val();
+            var priorityLevel = $("#priorityLevel").val();
+            var toDoData = {
+                toDoTitle: title,
+                toDoPriority: priorityLevel,
+            };
+            return toDoData;
+        };
+
+        azure.page.loadTemplate = function () {
+            var templateHtml = $("#template").html();                  
+            var vDomTemplate = $(templateHtml);                        
+            return vDomTemplate;
+        };
+
+        azure.page.addTask = function (data) {
+            if (azure.page.activeItem) {
+                $(azure.page.activeItem).find(".title").text(data.toDoTitle);
+                $(azure.page.activeItem).find(".priority").text(data.toDoPriority);
+                azure.page.activeItem = null;
+            }
+            else {
+                var newTemplate = azure.page.loadTemplate();
+                newTemplate.find(".title").text(data.toDoTitle);
+                newTemplate.find(".priority").text(data.toDoPriority);
+                $("#item-list").append(newTemplate);
+            }
+        };
+
+        azure.page.clearForm = function () {
+            $("#frmAddToDo")[0].reset();
+        };
+
+        azure.page.handlers.close = function () {
+            var item = $(this).closest(".item-row");
+            item.remove();
+        };
+
+        azure.page.readTask = function (item) {
+            var title = $(item).find(".title").text();
+            var priorityLevel = $(item).find(".priority").text();
+            var updateData = {
+                updateTitle: title,
+                updatePriority: priorityLevel,
+            };
+            return updateData;
+        };
+
+        azure.page.showUpdate = function (editData) {
+            $("#title").val(editData.updateTitle);
+            $("#priorityLevel").val(editData.updatePriority);
+        };
+
+        azure.page.changeAddValue = function () {
+            $("#btnSubmit").val("Update");
+        };
+
+        azure.page.handlers.edit = function () {
+            azure.page.activeItem = this;
+            var editData = azure.page.readTask(this);
+            azure.page.showUpdate(editData);
+            azure.page.changeAddValue();
+        };
+
+
+    </script>
+
+    <!-- This is the template -->
+
+    <script type="text/html" id="template">
+        <div class="row  item-row">
+            <div class="col-sm-offset-1 col-sm-9">
+                <p class="title">Pay Mortgage</p>
+                <p class="priority">High</p>
+            </div>
+            <div class="col-sm-2">
+                <input type="button" class="delete pull-right btn btn-sm btn-danger" value="x" />
+            </div>
+        </div>
+    </script>
+
+</body>
+</html>
